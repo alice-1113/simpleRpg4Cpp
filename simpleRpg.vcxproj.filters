@@ -13,6 +13,12 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="ソース ファイル\hoge">
+      <UniqueIdentifier>{5e24eb23-1dae-46e9-9662-06cbd40cee5e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ヘッダー ファイル\hoge">
+      <UniqueIdentifier>{d3e96be3-5034-4016-a770-9ccf0e653faa}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -21,10 +27,16 @@
     <ClCompile Include="source.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
+    <ClCompile Include="fuga.cpp">
+      <Filter>ソース ファイル\hoge</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="source.h">
       <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="fuga.h">
+      <Filter>ヘッダー ファイル\hoge</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
