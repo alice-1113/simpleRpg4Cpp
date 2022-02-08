@@ -141,11 +141,9 @@
   <ItemGroup>
     <ClCompile Include="main.cpp" />
     <ClCompile Include="source.cpp" />
-    <ClCompile Include="fuga.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="source.h" />
-    <ClInclude Include="fuga.h" />
+    <ClInclude Include="source.hpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

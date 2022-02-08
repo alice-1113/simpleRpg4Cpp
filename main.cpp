@@ -1,6 +1,6 @@
 ﻿#include <iostream>
-#include "source.h"
-#include "fuga.h"
+#include "source.hpp"
+
 using namespace std;
 
 
@@ -17,5 +17,4 @@ int main() {
     cout << "Hello World!\n";
     mainloop = start_menu();
     hello();
-    foo();
 }
