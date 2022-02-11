@@ -14,7 +14,10 @@ int start_menu(void) {
 
 int main() {
     int mainloop;
+    int flag;
     cout << "Hello World!\n";
     mainloop = start_menu();
     hello();
+    cin >> flag;
+    return 0;
 }
