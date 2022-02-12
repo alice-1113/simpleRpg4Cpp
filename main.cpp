@@ -1,5 +1,4 @@
 ﻿#include <iostream>
-#include "source.hpp"
 
 using namespace std;
 
@@ -12,12 +11,29 @@ int start_menu(void) {
     return mode;
 }
 
+class Player {
+    private:
+        string name;
+    public: 
+        void init(string name);
+        void show();
+};
+
+void Player::init(string name) {
+    this->name = name;
+}
+
+
+void Player::show() {
+    cout << name << "\n";
+}
+
 int main() {
     int mainloop;
-    int flag;
-    cout << "Hello World!\n";
+    Player *player = new Player();
+    player->init("Alice");
     mainloop = start_menu();
-    hello();
-    cin >> flag;
+    player->show();
+    delete player;
     return 0;
 }
