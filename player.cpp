@@ -8,15 +8,17 @@ class Player {
         int money;
         Status status;
     public:
-        void init(string name);
+        void init(string name, Status status, int money);
         void setStatus(Status status);
         void setMoney(int money);
         void show(void);
 };
 
 
-void Player::init(string name) {
+void Player::init(string name, Status status, int money) {
     this->name = name;
+    setStatus(status);
+    setMoney(money);
 }
 
 void Player::setStatus(Status status) {

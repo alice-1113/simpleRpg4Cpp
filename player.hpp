@@ -10,7 +10,7 @@ class Player {
         int money;
         Status status;
     public:
-        void init(string name);
+        void init(string name, Status status, int money);
         void setStatus(Status status);
         void setMoney(int money);
         void show(void);

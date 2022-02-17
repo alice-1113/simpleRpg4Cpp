@@ -12,18 +12,45 @@ int start_menu(void) {
     return mode;
 }
 
+int play_menu(void) {
+    int mode;
+    cout << "[1]Explore "
+        << "[2]Status "
+        << "[0]Exit > ";
+    cin >> mode;
+    return mode;
+}
 
 int main() {
+    int mainloop, gameloop;
+    
+    string player_name;
     Player* player = new Player();
     Status* status = new Status();
     status->init(1, 30, 10, 5, 0);
-    string player_name;
+    mainloop = start_menu();
+    if (mainloop == 0) { exit(0); }
     cout << "Please enter your name > ";
     cin >> player_name;
-    player->init(player_name);
-    player->setStatus(*status);
-    player->setMoney(3000);
+    player->init(player_name, *status, 3000);
     player->show();
+    gameloop = play_menu();
+    // Rewrite State pattern, mainloop, gameloop, ... and so on. 
+    switch (gameloop) {
+        case 0:
+            cout << "Bye";
+            break;
+        case 1:
+            cout << "OK";
+            break;
+        case 2:
+            player->show();
+            break;
+        default:
+            break;
+    }
+
+    delete status;
     delete player;
 
 
