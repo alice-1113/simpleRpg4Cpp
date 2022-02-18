@@ -32,22 +32,25 @@ int main() {
     if (mainloop == 0) { exit(0); }
     cout << "Please enter your name > ";
     cin >> player_name;
-    player->init(player_name, *status, 3000);
+    player->init(player_name, status, 3000);
     player->show();
-    gameloop = play_menu();
-    // Rewrite State pattern, mainloop, gameloop, ... and so on. 
-    switch (gameloop) {
+    gameloop = 1;
+    while (gameloop) {
+        gameloop = play_menu();
+        // Rewrite State pattern, mainloop, gameloop, ... and so on. 
+        switch (gameloop) {
         case 0:
-            cout << "Bye";
+            cout << "Bye\n";
             break;
         case 1:
-            cout << "OK";
+            cout << "OK\n";
             break;
         case 2:
             player->show();
             break;
         default:
             break;
+        }
     }
 
     delete status;

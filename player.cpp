@@ -4,24 +4,24 @@ using namespace std;
 
 class Player {
     private:
-        string name;
-        int money;
-        Status status;
+        string name{ "" };
+        int money{ 0 };
+        Status* status{ NULL };
     public:
-        void init(string name, Status status, int money);
-        void setStatus(Status status);
+        void init(string name, Status *status, int money);
+        void setStatus(Status *status);
         void setMoney(int money);
         void show(void);
 };
 
 
-void Player::init(string name, Status status, int money) {
+void Player::init(string name, Status *status, int money) {
     this->name = name;
     setStatus(status);
     setMoney(money);
 }
 
-void Player::setStatus(Status status) {
+void Player::setStatus(Status *status) {
     this->status = status;
 }
 
@@ -32,9 +32,9 @@ void Player::setMoney(int money) {
 void Player::show(void) {
     cout << "Name: " << name << "\n"
         << "Money:" << money << "\n"
-        << "Lv : " << status.getLevel() << "\n"
-        << "HP : " << status.getHitPoint() << "\n"
-        << "STR: " << status.getStrength() << "\n"
-        << "DEF: " << status.getDefence() << "\n"
-        << "EXP: " << status.getExp() << "\n";
+        << "Lv : " << status->getLevel() << "\n"
+        << "HP : " << status->getHitPoint() << "\n"
+        << "STR: " << status->getStrength() << "\n"
+        << "DEF: " << status->getDefence() << "\n"
+        << "EXP: " << status->getExp() << "\n";
 }

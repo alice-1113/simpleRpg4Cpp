@@ -4,14 +4,15 @@
 #define _PLAYER_HPP_
 #include "status.hpp"
 
+
 class Player {
     private:
-        string name;
-        int money;
-        Status status;
+        string name{ "" };
+        int money{ 0 };
+        Status* status{ NULL };
     public:
-        void init(string name, Status status, int money);
-        void setStatus(Status status);
+        void init(string name, Status *status, int money);
+        void setStatus(Status *status);
         void setMoney(int money);
         void show(void);
 };
