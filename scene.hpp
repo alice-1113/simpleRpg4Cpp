@@ -7,8 +7,10 @@ using namespace std;
 
 
 class Scene {
-private:
-	string name;
+	private:
+		string name;
+	public:
+		string getName();
 };
 
 
