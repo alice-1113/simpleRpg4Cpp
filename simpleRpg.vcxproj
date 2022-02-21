@@ -143,11 +143,13 @@
     <ClCompile Include="player.cpp" />
     <ClCompile Include="scene.cpp" />
     <ClCompile Include="status.cpp" />
+    <ClCompile Include="scenemanager.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="player.hpp" />
     <ClInclude Include="scene.hpp" />
     <ClInclude Include="status.hpp" />
+    <ClInclude Include="scenemanager.hpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

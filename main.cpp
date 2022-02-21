@@ -3,6 +3,8 @@ using namespace std;
 
 #include "player.hpp"
 #include "status.hpp"
+#include "scene.hpp"
+#include "scenemanager.hpp"
 
 
 int start_menu(void) {
@@ -23,7 +25,14 @@ int play_menu(void) {
 
 int main() {
     int mainloop, gameloop;
-    
+    int scene_id = 0;
+    SceneManager *sm = new SceneManager();
+    sm->init();
+    Scene* scene = new Scene();
+    scene->setName("main");
+    sm->set(scene);
+    cout << sm->get(scene)->getName() << "\n";
+
     string player_name;
     Player* player = new Player();
     Status* status = new Status();
@@ -55,7 +64,7 @@ int main() {
 
     delete status;
     delete player;
-
-
+    sm->del();
+    delete sm;
     return 0;
 }

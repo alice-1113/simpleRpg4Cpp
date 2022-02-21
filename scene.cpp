@@ -1,14 +1,12 @@
 #include <iostream>
+#include "scene.hpp"
 using namespace std;
 
 
-class Scene {
-	private:
-		string name;
-	public:
-		string getName();
-};
-
 string Scene::getName() {
 	return name;
+}
+
+void Scene::setName(string newname) {
+	name = newname;
 }
