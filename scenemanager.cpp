@@ -14,7 +14,7 @@ void SceneManager::del() {
 	}
 }
 
-void SceneManager::set(Scene* scene) {
+void SceneManager::add(Scene* scene) {
 	scenes[size] = scene;
 	size++;
 }

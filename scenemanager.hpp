@@ -8,7 +8,7 @@ private:
 public:
 	void init();
 	void del();
-	void set(Scene* scene);
+	void add(Scene* scene);
 	Scene* get(Scene* scene);
 	Scene* get(int index);
 };
