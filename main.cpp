@@ -32,6 +32,7 @@ int main() {
     scene->setName("main");
     sm->add(scene);
     cout << sm->get(scene)->getName() << "\n";
+    cout << sm->get("main")->getName() << "\n";
 
     string player_name;
     Player* player = new Player();

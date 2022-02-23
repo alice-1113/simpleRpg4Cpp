@@ -11,4 +11,6 @@ public:
 	void add(Scene* scene);
 	Scene* get(Scene* scene);
 	Scene* get(int index);
+	Scene* get(string name);
+
 };

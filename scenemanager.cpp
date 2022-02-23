@@ -29,3 +29,10 @@ Scene* SceneManager::get(Scene* scene) {
 Scene* SceneManager::get(int index) {
 	return scenes[index];
 }
+
+Scene* SceneManager::get(string name) {
+	for (int i = 0; i < size; i++) {
+		if (name == scenes[i]->getName()) { return scenes[i]; }
+	}
+	return NULL;
+}
