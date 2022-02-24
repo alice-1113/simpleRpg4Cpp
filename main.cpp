@@ -1,10 +1,10 @@
 ﻿#include <iostream>
+#include <map>
 using namespace std;
 
 #include "player.hpp"
 #include "status.hpp"
 #include "scene.hpp"
-#include "scenemanager.hpp"
 
 
 int start_menu(void) {
@@ -26,13 +26,12 @@ int play_menu(void) {
 int main() {
     int mainloop, gameloop;
     int scene_id = 0;
-    SceneManager *sm = new SceneManager();
-    sm->init();
-    Scene* scene = new Scene();
-    scene->setName("main");
-    sm->add(scene);
-    cout << sm->get(scene)->getName() << "\n";
-    cout << sm->get("main")->getName() << "\n";
+    map<string, Scene*> scenes;
+  
+    scenes["main"] = new Scene();
+    scenes["main"]->setName("main");
+    cout << scenes["main"]->getName() << "\n";
+    delete scenes["main"];
 
     string player_name;
     Player* player = new Player();
@@ -65,7 +64,5 @@ int main() {
 
     delete status;
     delete player;
-    sm->del();
-    delete sm;
     return 0;
 }
