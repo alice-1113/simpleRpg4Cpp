@@ -24,8 +24,9 @@ int play_menu(void) {
 }
 
 int main() {
-    int mainloop, gameloop;
+    int gameloop;
     int scene_id = 0;
+    int mainloop;
     map<string, Scene*> scenes;
     string sceneNames[3] = {
         "main", "2nd", "3rd"
