@@ -27,15 +27,17 @@ int main() {
     int gameloop;
     int scene_id = 0;
     int mainloop;
+    string name;
     map<string, Scene*> scenes;
     string sceneNames[3] = {
         "main", "2nd", "3rd"
     };
     for (int i = 0; i < 3; i++) {
-        scenes[sceneNames[i]] = new Scene();
-        scenes[sceneNames[i]]->setName(sceneNames[i]);
-        cout << scenes[sceneNames[i]]->getName() << "\n";
-        delete scenes[sceneNames[i]];
+        name = sceneNames[i];
+        scenes[name] = new Scene();
+        scenes[name]->setName(name);
+        cout << scenes[name]->getName() << "\n";
+        delete scenes[name];
     }
 
     string player_name;
