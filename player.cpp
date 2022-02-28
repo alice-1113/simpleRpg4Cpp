@@ -1,18 +1,7 @@
 #include <iostream>
 using namespace std;
 #include "status.hpp"
-
-class Player {
-    private:
-        string name{ "" };
-        int money{ 0 };
-        Status* status{ NULL };
-    public:
-        void init(string name, Status *status, int money);
-        void setStatus(Status *status);
-        void setMoney(int money);
-        void show(void);
-};
+#include "player.hpp"
 
 
 void Player::init(string name, Status *status, int money) {
