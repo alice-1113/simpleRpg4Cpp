@@ -3,13 +3,44 @@ using namespace std;
 
 
 typedef struct {
+    int level;
+    int hp;
+    int pw;
+    int exp;
+} STATUS;
+
+typedef struct {
     string name;
+    STATUS status;
 } PLAYER;
+
+typedef struct {
+    string name;
+    STATUS status;
+} ENEMY;
+
+
+void showPlayer(PLAYER player) {
+    cout << "Name: " << player.name << "\n";
+    printf_s("Lv  : %3d\n", player.status.level);
+    printf_s("HP  : %3d\n", player.status.hp);
+    printf_s("STR : %3d\n", player.status.pw);
+    printf_s("EXP : %3d\n", player.status.exp);
+}
+
+void enterName(PLAYER *player) {
+    cout << "Please enter your name > ";
+    cin >> player->name;
+}
 
 
 int main() {
-    PLAYER player = { "Alice" };
-    cin >> player.name;
-    cout << player.name << "\n";
+    STATUS playerStatus = { 1, 32, 12, 0 };
+    PLAYER player = { "Alice", playerStatus };
+    STATUS enemyStatus = { 1, 24, 8, 4 };
+    ENEMY enemy = { "Slime", enemyStatus };
+    
+
+    showPlayer(player);
     return 0;
 }
