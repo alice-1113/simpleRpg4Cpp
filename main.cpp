@@ -2,9 +2,14 @@
 using namespace std;
 
 
+typedef struct {
+    string name;
+} PLAYER;
+
+
 int main() {
-    int m;
-    cout << "Hello, World!\n";
-    cin >> m;
+    PLAYER player = { "Alice" };
+    cin >> player.name;
+    cout << player.name << "\n";
     return 0;
 }
