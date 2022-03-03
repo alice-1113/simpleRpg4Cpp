@@ -28,6 +28,12 @@ void showPlayer(PLAYER player) {
     printf_s("EXP : %3d\n", player.status.exp);
 }
 
+void showEnemy(ENEMY enemy) {
+    cout << "Name: " << enemy.name << "\n";
+    printf_s("HP  : %3d\n", enemy.status.hp);
+    printf_s("STR : %3d\n", enemy.status.pw);
+}
+
 void enterName(PLAYER *player) {
     cout << "Please enter your name > ";
     cin >> player->name;
@@ -39,8 +45,8 @@ int main() {
     PLAYER player = { "Alice", playerStatus };
     STATUS enemyStatus = { 1, 24, 8, 4 };
     ENEMY enemy = { "Slime", enemyStatus };
-    
 
     showPlayer(player);
+    showEnemy(enemy);
     return 0;
 }
