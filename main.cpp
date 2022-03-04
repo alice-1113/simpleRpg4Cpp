@@ -46,7 +46,19 @@ int main() {
     STATUS enemyStatus = { 1, 24, 8, 4 };
     ENEMY enemy = { "Slime", enemyStatus };
 
+    int flag;
+    cout << "Welcome to SimpleRPG!\n";
+    cout << "[1] Start [0] Exit > ";
+    cin >> flag;
+
+    if (!flag) {
+        cout << "Bye!\n";
+        exit(0);
+    }
+
     showPlayer(player);
+    
     showEnemy(enemy);
+    
     return 0;
 }
