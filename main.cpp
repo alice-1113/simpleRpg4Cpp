@@ -3,48 +3,36 @@ using namespace std;
 
 
 typedef struct {
+    string name;
     int level;
     int hp;
     int pw;
     int exp;
-} STATUS;
-
-typedef struct {
-    string name;
-    STATUS status;
-} PLAYER;
-
-typedef struct {
-    string name;
-    STATUS status;
-} ENEMY;
+    bool isPlayer;
+} ACTOR;
 
 
-void showPlayer(PLAYER player) {
-    cout << "Name: " << player.name << "\n";
-    printf_s("Lv  : %3d\n", player.status.level);
-    printf_s("HP  : %3d\n", player.status.hp);
-    printf_s("STR : %3d\n", player.status.pw);
-    printf_s("EXP : %3d\n", player.status.exp);
+
+void showActor(ACTOR actor) {
+    cout << "Name: " << actor.name << "\n";
+    printf_s("Lv  : %3d\n", actor.level);
+    printf_s("HP  : %3d\n", actor.hp);
+    if (actor.isPlayer) {
+        printf_s("STR : %3d\n", actor.pw);
+        printf_s("EXP : %3d\n", actor.exp);
+    }
+    cout << endl;
 }
 
-void showEnemy(ENEMY enemy) {
-    cout << "Name: " << enemy.name << "\n";
-    printf_s("HP  : %3d\n", enemy.status.hp);
-    printf_s("STR : %3d\n", enemy.status.pw);
-}
-
-void enterName(PLAYER *player) {
+void enterName(ACTOR *player) {
     cout << "Please enter your name > ";
     cin >> player->name;
 }
 
 
 int main() {
-    STATUS playerStatus = { 1, 32, 12, 0 };
-    PLAYER player = { "Alice", playerStatus };
-    STATUS enemyStatus = { 1, 24, 8, 4 };
-    ENEMY enemy = { "Slime", enemyStatus };
+    ACTOR player = { "Alice", 1, 32, 12, 0, true };
+    ACTOR enemy = { "Slime", 1, 24, 8, 4, false };
 
     int flag;
     cout << "Welcome to SimpleRPG!\n";
@@ -56,9 +44,9 @@ int main() {
         exit(0);
     }
 
-    showPlayer(player);
+    showActor(player);
     
-    showEnemy(enemy);
+    showActor(enemy);
     
     return 0;
 }
