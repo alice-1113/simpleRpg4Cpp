@@ -1,5 +1,12 @@
 ﻿#include <iostream>
 using namespace std;
+#include <stdlib.h>
+#include <time.h>
+
+
+int random(int min, int max) {
+    return (rand() % (max - min + 1)) + min;
+}
 
 
 typedef struct {
@@ -31,6 +38,8 @@ void enterName(ACTOR *player) {
 
 
 int main() {
+    srand((unsigned int)time(NULL));
+
     ACTOR player = { "Alice", 1, 32, 12, 0, true };
     ACTOR enemy = { "Slime", 1, 24, 8, 4, false };
 
@@ -48,5 +57,9 @@ int main() {
     
     showActor(enemy);
     
+
+    for (int i = 0; i < 10; i++) {
+        cout << random(0, 5) << endl;
+    }
     return 0;
 }
