@@ -57,9 +57,5 @@ int main() {
     
     showActor(enemy);
     
-
-    for (int i = 0; i < 10; i++) {
-        cout << random(0, 5) << endl;
-    }
     return 0;
 }
