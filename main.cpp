@@ -10,17 +10,17 @@ int random(int min, int max) {
 
 
 typedef struct {
-    string name;
-    int level;
-    int hp;
-    int pw;
-    int exp;
-    bool isPlayer;
+    string name = "";
+    int level = 0;
+    int hp = 0;
+    int pw = 0;
+    int exp = 0;
+    bool isPlayer = true;
 } ACTOR;
 
 typedef struct {
-    ACTOR player;
-    int currentSceneId;
+    ACTOR *player = { NULL };
+    int currentSceneId = { 0 };
 } GAMEDATA;
 
 
@@ -46,7 +46,7 @@ int main() {
     GAMEDATA data;
     ACTOR player = { "Alice", 1, 32, 12, 0, true };
     ACTOR enemy = { "Slime", 1, 24, 8, 4, false };
-    data.player = player;
+    data.player = &player;
     data.currentSceneId = 0;
 
     int flag;
