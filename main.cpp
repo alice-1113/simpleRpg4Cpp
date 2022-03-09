@@ -18,10 +18,6 @@ typedef struct {
     bool isPlayer = true;
 } ACTOR;
 
-typedef struct {
-    ACTOR *player = { NULL };
-    int currentSceneId = { 0 };
-} GAMEDATA;
 
 
 void showActor(ACTOR actor) {
@@ -43,11 +39,8 @@ void enterName(ACTOR *player) {
 
 int main() {
     srand((unsigned int)time(NULL));
-    GAMEDATA data;
     ACTOR player = { "Alice", 1, 32, 12, 0, true };
     ACTOR enemy = { "Slime", 1, 24, 8, 4, false };
-    data.player = &player;
-    data.currentSceneId = 0;
 
     int flag;
     cout << "Welcome to SimpleRPG!\n";
