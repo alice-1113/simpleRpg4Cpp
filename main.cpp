@@ -10,12 +10,12 @@ int random(int min, int max) {
 
 
 typedef struct {
-    string name = "";
-    int level = 0;
-    int hp = 0;
-    int pw = 0;
-    int exp = 0;
-    bool isPlayer = true;
+    string name;
+    int level;
+    int hp;
+    int pw;
+    int exp;
+    bool isPlayer;
 } ACTOR;
 
 
@@ -34,6 +34,12 @@ void showActor(ACTOR actor) {
 void enterName(ACTOR *player) {
     cout << "Please enter your name > ";
     cin >> player->name;
+}
+
+int battle(ACTOR player, ACTOR enemy) {
+    cout << "Player: " << player.name << "\n";
+    cout << "Enemy: " << enemy.name << "\n";
+    return 0;
 }
 
 
@@ -56,5 +62,6 @@ int main() {
     
     showActor(enemy);
     
+    battle(player, enemy);
     return 0;
 }
