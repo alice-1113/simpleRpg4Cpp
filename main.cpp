@@ -5,14 +5,13 @@ using namespace std;
 
 
 
-
 class Random {
 public:
-    void init_random(void);
+    Random(void);
     int random(int min, int max);
 };
 
-void Random::init_random(void) {
+Random::Random(void) {
     srand((unsigned int)time(NULL));
 }
 
@@ -62,8 +61,7 @@ int battle(const ACTOR player, const ACTOR enemy) {
 
 int main() {
     Random *random = new Random();
-    random->init_random();
-    cout << random->random(0, 10) << endl;
+    random->random();
 
     ACTOR player = { "Alice", 1, 32, 12, 0, true };
     ACTOR enemy = { "Slime", 1, 24, 8, 4, false };
@@ -71,10 +69,12 @@ int main() {
     int flag;
     cout << "Welcome to SimpleRPG!\n";
     cout << "[1] Start [0] Exit > ";
-    cin >> flag;
+    // cin >> flag;
+    flag = 0;
 
     if (!flag) {
         cout << "Bye!\n";
+        delete random;
         exit(0);
     }
 
