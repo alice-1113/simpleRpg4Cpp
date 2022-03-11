@@ -4,7 +4,19 @@ using namespace std;
 #include <time.h>
 
 
-int random(int min, int max) {
+
+
+class Random {
+public:
+    void init_random(void);
+    int random(int min, int max);
+};
+
+void Random::init_random(void) {
+    srand((unsigned int)time(NULL));
+}
+
+int Random::random(int min, int max) {
     return (rand() % (max - min + 1)) + min;
 }
 
@@ -20,7 +32,7 @@ typedef struct {
 
 
 
-void showActor(ACTOR actor) {
+void showActor(const ACTOR actor) {
     cout << "Name: " << actor.name << "\n";
     printf_s("Lv  : %3d\n", actor.level);
     printf_s("HP  : %3d\n", actor.hp);
@@ -36,15 +48,23 @@ void enterName(ACTOR *player) {
     cin >> player->name;
 }
 
-int battle(ACTOR player, ACTOR enemy) {
+int battle(const ACTOR player, const ACTOR enemy) {
     cout << "Player: " << player.name << "\n";
     cout << "Enemy: " << enemy.name << "\n";
+
+    cout << "Finish!" << "\n";
+
+    cout << "Winner: " << player.name << "\n";
+
     return 0;
 }
 
 
 int main() {
-    srand((unsigned int)time(NULL));
+    Random *random = new Random();
+    random->init_random();
+    cout << random->random(0, 10) << endl;
+
     ACTOR player = { "Alice", 1, 32, 12, 0, true };
     ACTOR enemy = { "Slime", 1, 24, 8, 4, false };
 
@@ -59,9 +79,9 @@ int main() {
     }
 
     showActor(player);
-    
     showActor(enemy);
     
     battle(player, enemy);
+    delete random;
     return 0;
 }
