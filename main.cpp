@@ -65,22 +65,16 @@ int battle(const ACTOR player, const ACTOR enemy) {
 
 
 int main() {
-    Random *random = new Random();
-    cout << random->randint(0, 10) << endl;
-    cout << random->random() << endl;
-
     ACTOR player = { "Alice", 1, 32, 12, 0, true };
     ACTOR enemy = { "Slime", 1, 24, 8, 4, false };
 
     int flag;
     cout << "Welcome to SimpleRPG!\n";
     cout << "[1] Start [0] Exit > ";
-    // cin >> flag;
-    flag = 0;
+    cin >> flag;
 
     if (!flag) {
         cout << "Bye!\n";
-        delete random;
         exit(0);
     }
 
@@ -88,6 +82,5 @@ int main() {
     showActor(enemy);
     
     battle(player, enemy);
-    delete random;
     return 0;
 }
