@@ -8,15 +8,20 @@ using namespace std;
 class Random {
 public:
     Random(void);
-    int random(int min, int max);
+    int randint(int min, int max);
+    double random();
 };
 
 Random::Random(void) {
     srand((unsigned int)time(NULL));
 }
 
-int Random::random(int min, int max) {
+int Random::randint(int min, int max) {
     return (rand() % (max - min + 1)) + min;
+}
+ 
+double Random::random() {
+    return (double)((double)(rand() % 100) / 100);
 }
 
 
@@ -61,7 +66,8 @@ int battle(const ACTOR player, const ACTOR enemy) {
 
 int main() {
     Random *random = new Random();
-    random->random();
+    cout << random->randint(0, 10) << endl;
+    cout << random->random() << endl;
 
     ACTOR player = { "Alice", 1, 32, 12, 0, true };
     ACTOR enemy = { "Slime", 1, 24, 8, 4, false };
