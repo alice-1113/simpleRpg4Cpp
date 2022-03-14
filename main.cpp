@@ -65,6 +65,9 @@ int battle(const ACTOR player, const ACTOR enemy) {
 
 
 int main() {
+    Random *random = new Random();
+    cout << random->randint(0, 10) << endl;
+    delete random;
     ACTOR player = { "Alice", 1, 32, 12, 0, true };
     ACTOR enemy = { "Slime", 1, 24, 8, 4, false };
 
