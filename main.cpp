@@ -1,28 +1,7 @@
 ﻿#include <iostream>
 using namespace std;
 #include <stdlib.h>
-#include <time.h>
-
-
-
-class Random {
-public:
-    Random(void);
-    int randint(int min, int max);
-    double random();
-};
-
-Random::Random(void) {
-    srand((unsigned int)time(NULL));
-}
-
-int Random::randint(int min, int max) {
-    return (rand() % (max - min + 1)) + min;
-}
- 
-double Random::random() {
-    return (double)((double)(rand() % 100) / 100);
-}
+#include "random.hpp"
 
 
 typedef struct {
