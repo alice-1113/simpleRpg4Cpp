@@ -14,3 +14,7 @@ int Random::randint(int min, int max) {
 double Random::random() {
     return (double)((double)(rand() % 100) / 100);
 }
+
+int Random::fix(int min, int max) {
+    return 0;
+}
