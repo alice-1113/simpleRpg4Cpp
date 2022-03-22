@@ -66,5 +66,7 @@ int main() {
     showActor(enemy);
     
     battle(player, enemy);
+
+    cout << "exit; simpleRPG!" << endl ;
     return 0;
 }
