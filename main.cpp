@@ -44,8 +44,8 @@ int battle(const ACTOR player, const ACTOR enemy) {
 
 int main() {
     Random *random = new Random();
-    std::cout << random->randint(0, 10) << endl;
-    std::cout << random->random() << endl;
+    std::cout << random->randint(0, 10) << std::endl;
+    std::cout << random->random() << std::endl;
     delete random;
 
     ACTOR player = { "Alice", 1, 32, 12, 0, true };
@@ -66,6 +66,6 @@ int main() {
     
     battle(player, enemy);
 
-    std::cout << "exit; simpleRPG!" << endl ;
+    std::cout << "exit; simpleRPG!" << std::endl ;
     return 0;
 }
