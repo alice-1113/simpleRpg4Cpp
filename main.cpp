@@ -66,6 +66,8 @@ int main() {
     
     battle(player, enemy);
 
-    std::cout << "exit; simpleRPG!" << std::endl ;
+    std::cout << "exit; simpleRPG!" << std::endl;
+
+    std::cout << "GoodBye!" << std::endl;
     return 0;
 }
