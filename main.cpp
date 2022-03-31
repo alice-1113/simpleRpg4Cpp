@@ -44,6 +44,7 @@ int battle(const ACTOR player, const ACTOR enemy) {
 
 int main() {
     Random *random = new Random();
+
     std::cout << random->randint(0, 10) << std::endl;
     std::cout << random->random() << std::endl;
     delete random;
