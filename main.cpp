@@ -13,6 +13,22 @@ typedef struct {
 } ACTOR;
 
 
+void initPlayer(ACTOR* actor) {
+    actor->level = 1;
+    actor->hp = 32;
+    actor->pw = 12;
+    actor->exp = 0;
+    actor->isPlayer = true;
+}
+
+void initEnemy(ACTOR* actor) {
+    actor->level = 1;
+    actor->hp = 24;
+    actor->pw = 8;
+    actor->exp = 4;
+    actor->isPlayer = false;
+}
+
 
 void showActor(const ACTOR actor) {
     std::cout << "Name: " << actor.name << "\n";
@@ -28,6 +44,10 @@ void showActor(const ACTOR actor) {
 void enterName(ACTOR *player) {
     std::cout << "Please enter your name > ";
     std::cin >> player->name;
+}
+
+void eneterName(ACTOR* player, std::string name) {
+    player->name = name;
 }
 
 int battle(const ACTOR player, const ACTOR enemy) {
@@ -49,8 +69,12 @@ int main() {
     std::cout << random->random() << std::endl;
     delete random;
 
-    ACTOR player = { "Alice", 1, 32, 12, 0, true };
-    ACTOR enemy = { "Slime", 1, 24, 8, 4, false };
+    ACTOR player;
+    ACTOR enemy;
+    initPlayer(&player);
+    eneterName(&player, "Alice");
+
+    initEnemy(&enemy);
 
     int flag;
     std::cout << "Welcome to SimpleRPG!\n";
