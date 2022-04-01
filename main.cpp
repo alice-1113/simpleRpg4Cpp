@@ -3,15 +3,18 @@
 #include "random.hpp"
 
 
-typedef struct {
-    std::string name;
-    int level;
-    int hp;
-    int pw;
-    int exp;
-    bool isPlayer;
-} ACTOR;
+struct ACTOR{
+    std::string name="";
+    int level=1;
+    int hp=0;
+    int pw=0;
+    int exp=0;
+    bool isPlayer=true;
+    ACTOR() {};
+};
 
+
+typedef struct ACTOR ACTOR;
 
 void initPlayer(ACTOR* actor) {
     actor->level = 1;
