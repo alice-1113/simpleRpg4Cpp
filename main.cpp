@@ -97,5 +97,6 @@ int main() {
     std::cout << "exit; simpleRPG!" << std::endl;
 
     std::cout << "GoodBye!" << std::endl;
+    // update!
     return 0;
 }
