@@ -49,16 +49,44 @@ void enterName(ACTOR *player) {
     std::cin >> player->name;
 }
 
-void eneterName(ACTOR* player, std::string name) {
+void enterName(ACTOR* player, std::string name) {
     player->name = name;
 }
 
-int battle(const ACTOR player, const ACTOR enemy) {
-    std::cout << "Player: " << player.name << "\n";
-    std::cout << "Enemy: " << enemy.name << "\n";
+ACTOR copyActor(const ACTOR actor, bool isPlayer) {
+    ACTOR copy;
+    if (isPlayer) {
+        initPlayer(&copy);
+        enterName(&copy, actor.name);
+    } else {
+        initEnemy(&copy);
+        enterName(&copy, actor.name);
+    }
+    return copy;
+}
+
+int battle(const ACTOR source, const ACTOR target) {
+    std::cout << "Player: " << source.name << "\n";
+    std::cout << "Enemy: " << target.name << "\n";
+    ACTOR player = copyActor(source, true);
+    ACTOR enemy = copyActor(target, false);
+
+    while (1) {
+        std::cout << "Player's attack!\n" << player.pw << "damage!\n";
+        enemy.hp -= player.pw;
+        if (enemy.hp <= 0) {
+            std::cout << "enemy is dead!\n";
+            break;
+        }
+        std::cout << "Enemy's attack!\n" << enemy.pw << "damage!\n";
+        player.hp -= enemy.pw;
+        if (player.hp <= 0) {
+            std::cout << "you are dead!\n";
+            break;
+        }
+    }
 
     std::cout << "Finish!" << "\n";
-
     std::cout << "Winner: " << player.name << "\n";
 
     return 0;
@@ -75,9 +103,10 @@ int main() {
     ACTOR player;
     ACTOR enemy;
     initPlayer(&player);
-    eneterName(&player, "Alice");
+    enterName(&player, "Alice");
 
     initEnemy(&enemy);
+    enterName(&enemy, "Slime");
 
     int flag;
     std::cout << "Welcome to SimpleRPG!\n";
