@@ -126,5 +126,7 @@ int main() {
     std::cout << "exit; simpleRPG!" << std::endl;
 
     std::cout << "GoodBye!" << std::endl;
+    int input;
+    std::cin >> input;
     return 0;
 }
