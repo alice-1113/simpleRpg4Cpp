@@ -71,18 +71,19 @@ int battle(const ACTOR source, const ACTOR target) {
     ACTOR player = copyActor(source, true);
     ACTOR enemy = copyActor(target, false);
 
-    while (1) {
+    bool loop = true;
+    while (loop) {
         std::cout << "Player's attack!\n" << player.pw << "damage!\n";
         enemy.hp -= player.pw;
         if (enemy.hp <= 0) {
             std::cout << "enemy is dead!\n";
-            break;
+            loop = false;
         }
         std::cout << "Enemy's attack!\n" << enemy.pw << "damage!\n";
         player.hp -= enemy.pw;
         if (player.hp <= 0) {
             std::cout << "you are dead!\n";
-            break;
+            loop = false;
         }
     }
 
