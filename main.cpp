@@ -65,6 +65,7 @@ ACTOR copyActor(const ACTOR actor, bool isPlayer) {
 }
 
 int battle(const ACTOR source, const ACTOR target) {
+    int flag = 0;
     std::cout << "Player: " << source.name << "\n";
     std::cout << "Enemy: " << target.name << "\n";
     ACTOR player = copyActor(source, true);
@@ -77,19 +78,20 @@ int battle(const ACTOR source, const ACTOR target) {
         if (enemy.hp <= 0) {
             std::cout << "enemy is dead!\n";
             loop = false;
+            flag = 1;
         }
         std::cout << "Enemy's attack!\n" << enemy.pw << "damage!\n";
         player.hp -= enemy.pw;
         if (player.hp <= 0) {
             std::cout << "you are dead!\n";
             loop = false;
+            flag = 2;
         }
     }
 
     std::cout << "Finish!" << "\n";
     std::cout << "Winner: " << player.name << "\n";
-
-    return 0;
+    return flag;
 }
 
 
@@ -100,6 +102,7 @@ int main() {
     std::cout << random->random() << std::endl;
     delete random;
 
+    int winCount = 0;
     ACTOR player;
     ACTOR enemy;
     initPlayer(&player);
@@ -130,9 +133,12 @@ int main() {
         }
         showActor(enemy);
 
-        battle(player, enemy);
+        if (battle(player, enemy)) {
+            winCount++;
+        }
     }
 
+    std::cout << "Win Count: " << winCount << std::endl;
     std::cout << "See you next time! " << std::endl;
     int input;
     std::cin >> input;
