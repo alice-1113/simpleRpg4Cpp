@@ -118,19 +118,20 @@ int main() {
         exit(0);
     }
 
-    showActor(player);
+    while (true) {
+        showActor(player);
 
-    std::cout << "Would you play battle?\n";
-    std::cout << "[1] Yes [0] No > ";
-    std::cin >> flag;
-    if (!flag) {
-        std::cout << "Bye!\n";
-        exit(0);
+        std::cout << "Would you play battle?\n";
+        std::cout << "[1] Yes [0] No > ";
+        std::cin >> flag;
+        if (!flag) {
+            std::cout << "Bye!\n";
+            break;
+        }
+        showActor(enemy);
+
+        battle(player, enemy);
     }
-    showActor(enemy);
-    
-    battle(player, enemy);
-
 
     std::cout << "See you next time! " << std::endl;
     int input;
