@@ -103,6 +103,7 @@ int main() {
     delete random;
 
     int winCount = 0;
+    int enemyWinCount = 0;
     ACTOR player;
     ACTOR enemy;
     initPlayer(&player);
@@ -136,9 +137,13 @@ int main() {
         if (battle(player, enemy)) {
             winCount++;
         }
+        else {
+            enemyWinCount++;
+        }
     }
 
     std::cout << "Win Count: " << winCount << std::endl;
+    std::cout << "Win Per  : " << (double)winCount / (double)(winCount + enemyWinCount) * 100 << "%" << std::endl;
     std::cout << "See you next time! " << std::endl;
     int input;
     std::cin >> input;
