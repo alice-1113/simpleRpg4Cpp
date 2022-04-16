@@ -104,6 +104,7 @@ int main() {
 
     int winCount = 0;
     int enemyWinCount = 0;
+    int gameCount = 0;
     ACTOR player;
     ACTOR enemy;
     initPlayer(&player);
@@ -133,7 +134,7 @@ int main() {
             break;
         }
         showActor(enemy);
-
+        gameCount++;
         if (battle(player, enemy)) {
             winCount++;
         }
@@ -143,7 +144,7 @@ int main() {
     }
 
     std::cout << "Win Count: " << winCount << std::endl;
-    std::cout << "Win Per  : " << (double)winCount / (double)(winCount + enemyWinCount) * 100 << "%" << std::endl;
+    std::cout << "Win Per  : " << (double)winCount / (double)(gameCount) * 100 << "%" << std::endl;
     std::cout << "See you next time! " << std::endl;
     int input;
     std::cin >> input;
