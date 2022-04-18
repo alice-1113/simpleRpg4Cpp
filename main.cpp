@@ -94,6 +94,10 @@ int battle(const ACTOR source, const ACTOR target) {
     return flag;
 }
 
+double rate(int x, int y) {
+    return (double)x / (double)y;
+}
+
 
 int main() {
     Random *random = new Random();
@@ -144,7 +148,7 @@ int main() {
     }
 
     std::cout << "Win Count: " << winCount << std::endl;
-    std::cout << "Win Per  : " << (double)winCount / (double)(gameCount) * 100 << "%" << std::endl;
+    std::cout << "Win Per  : " << rate(winCount, gameCount) * 100 << "%" << std::endl;
     std::cout << "See you next time! " << std::endl;
     int input;
     std::cin >> input;
