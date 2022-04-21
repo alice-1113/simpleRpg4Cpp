@@ -13,6 +13,10 @@ struct ACTOR{
     ACTOR() {};
 };
 
+struct ENEMY : ACTOR {
+    bool isPlayer = false;
+};
+
 typedef struct ACTOR ACTOR;
 
 void initPlayer(ACTOR* actor) {
@@ -20,7 +24,6 @@ void initPlayer(ACTOR* actor) {
     actor->hp = 32;
     actor->pw = 12;
     actor->exp = 0;
-    actor->isPlayer = true;
 }
 
 void initEnemy(ACTOR* actor) {
@@ -28,7 +31,6 @@ void initEnemy(ACTOR* actor) {
     actor->hp = 24;
     actor->pw = 8;
     actor->exp = 4;
-    actor->isPlayer = false;
 }
 
 
@@ -101,16 +103,13 @@ double rate(int x, int y) {
 
 int main() {
     Random *random = new Random();
-
-    std::cout << random->randint(0, 10) << std::endl;
-    std::cout << random->random() << std::endl;
     delete random;
 
     int winCount = 0;
     int enemyWinCount = 0;
     int gameCount = 0;
     ACTOR player;
-    ACTOR enemy;
+    ENEMY enemy;
     initPlayer(&player);
     enterName(&player, "Alice");
 
