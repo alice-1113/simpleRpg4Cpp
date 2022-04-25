@@ -97,7 +97,7 @@ int battle(const ACTOR source, const ACTOR target) {
 }
 
 double rate(int x, int y) {
-    return (double)x / (double)y;
+    return (double)x / (double)y * 100;
 }
 
 
@@ -147,7 +147,7 @@ int main() {
     }
 
     std::cout << "Win Count: " << winCount << std::endl;
-    std::cout << "Win Per  : " << rate(winCount, gameCount) * 100 << "%" << std::endl;
+    std::cout << "Win Per  : " << rate(winCount, gameCount) << "%" << std::endl;
     std::cout << "See you next time! " << std::endl;
     int input;
     std::cin >> input;
