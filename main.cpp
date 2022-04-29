@@ -67,6 +67,8 @@ ACTOR copyActor(const ACTOR actor, bool isPlayer) {
 }
 
 int battle(const ACTOR source, const ACTOR target) {
+    Random* random = new Random();
+    
     int flag = 0;
     std::cout << "Player: " << source.name << "\n";
     std::cout << "Enemy: " << target.name << "\n";
@@ -76,14 +78,14 @@ int battle(const ACTOR source, const ACTOR target) {
     bool loop = true;
     while (loop) {
         std::cout << "Player's attack!\n" << player.pw << "damage!\n";
-        enemy.hp -= player.pw;
+        enemy.hp -= player.pw + random->randint(1, 5);
         if (enemy.hp <= 0) {
             std::cout << "enemy is dead!\n";
             loop = false;
             flag = 1;
         }
         std::cout << "Enemy's attack!\n" << enemy.pw << "damage!\n";
-        player.hp -= enemy.pw;
+        player.hp -= enemy.pw + random->randint(1, 5);
         if (player.hp <= 0) {
             std::cout << "you are dead!\n";
             loop = false;
@@ -93,6 +95,7 @@ int battle(const ACTOR source, const ACTOR target) {
 
     std::cout << "Finish!" << "\n";
     std::cout << "Winner: " << player.name << "\n";
+    delete random;
     return flag;
 }
 
@@ -102,8 +105,7 @@ double rate(int x, int y) {
 
 
 int main() {
-    Random *random = new Random();
-    delete random;
+    
 
     int winCount = 0;
     int enemyWinCount = 0;
